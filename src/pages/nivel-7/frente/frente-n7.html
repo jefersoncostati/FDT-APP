@@ -1,0 +1,18 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Nível 7</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="body" padding>
+    <ion-list inset>
+      <button class="list" ion-item 
+        *ngFor="let aula of aulas" 
+        (click)="itemSelected(aula)">
+          {{ aula.aula }}
+      </button> 
+    </ion-list>
+</ion-content>

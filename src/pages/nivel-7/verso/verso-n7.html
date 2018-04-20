@@ -1,0 +1,53 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Nível 7</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="body" padding>
+        <ion-card class="conteudo">
+            <ion-card-header>
+                <strong>Nas Aulas Ímpares</strong>
+            </ion-card-header>
+            <ion-card class="list" *ngFor="let impar of aulasImpares">
+
+                <ion-card-content [ngClass]="impar.valor>5 ?'checkmark':''">
+                    <ion-icon [name]="impar.valor>5 ?'checkmark':''"></ion-icon>
+                    <label id="treinos" for="{{impar.treino}}">
+                        <strong> {{ impar.treino }} </strong>
+                    </label>
+                    <br>
+
+                    <label>
+                        <button ion-button color="danger" (click)="decrementAulasImpares(impar.id)" [disabled]="impar.valor>0 ?'':'disabled'"> - </button>
+                        <button ion-button color="secondary" (click)="incrementAulasImpares(impar.id)"> + </button>
+                        <label id="contador">{{ impar.valor }}/6</label>
+                    </label>
+                </ion-card-content>
+            </ion-card>
+        </ion-card>
+
+        <ion-card class="conteudo">
+            <ion-card-header>
+                <strong>Nas Aulas Pares</strong>
+            </ion-card-header>
+            <ion-card class="list" *ngFor="let par of aulasPares">
+                <ion-card-content [ngClass]="par.valor>5 ?'checkmark':''">
+                    <ion-icon [name]="par.valor>5 ?'checkmark':''"></ion-icon>
+                    <label id="treinos" for="{{par.treino}}">
+                        <strong> {{ par.treino }} </strong>
+                    </label>
+                    <br>
+
+                    <label>
+                        <button ion-button color="danger" (click)="decrementAulasPares(par.id)" [disabled]="par.valor>0 ?'':'disabled'"> - </button>
+                        <button ion-button color="secondary" (click)="incrementAulasPares(par.id)"> + </button>
+                        <label id="contador">{{ par.valor }}/6</label>
+                    </label>
+                </ion-card-content>
+            </ion-card>
+        </ion-card>
+</ion-content>

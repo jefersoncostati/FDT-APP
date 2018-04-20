@@ -1,0 +1,30 @@
+page-nivel-5 {
+    .checkmark{
+        background-color:#F0F8FF;
+        opacity: 0.9;
+        color: #006400;
+        font-weight: bold;
+    }
+    input{
+        display: none;
+    }
+    #treinos{
+        font-size: 17px;
+    }
+    #contador{
+        position: relative;
+        font-size: 20px;
+    }
+    .body{
+        background-color: #696969;
+        background-image: url("../assets/imgs/logo-tela-login.png");
+        background-repeat: no-repeat;
+        background-position: center; 
+    }
+    .list{
+        background-color: #000000;
+        opacity: 0.8;
+        font-weight: bold;
+        color: white;
+    }
+}

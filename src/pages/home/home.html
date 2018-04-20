@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Treinos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="body" padding >
+  <ion-list inset >
+    <button class="listLevel" ion-item 
+      *ngFor="let nivel of niveis" 
+      (click)="itemSelected(nivel)">
+        {{ nivel.nivel }}
+    </button> 
+  </ion-list>
+</ion-content>

@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Aula 12</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content class="body" padding>
+    <ion-card class="list" *ngFor="let exercicio of treinosList">
+        <ion-card-content [ngClass]="exercicio.class">
+            <input type="checkbox" id="{{exercicio.id}}" name="active" (click)="salvar(exercicio.id)">
+            <ion-icon [name]="exercicio.class"></ion-icon>
+            <label for="{{exercicio.id}}"> {{ exercicio.treino }} </label>
+        </ion-card-content>
+    </ion-card>
+    <ion-card class="list" *ngFor="let luta of lutas">
+        <ion-card-content [ngClass]="luta.valor>1 ?'checkmark':''">
+            <ion-icon [name]="luta.valor>1 ?'checkmark':''"></ion-icon>
+            <label id="treinos" for="{{luta.id}}">
+                <strong> {{ luta.treino }} </strong>
+            </label>
+            <br>
+
+            <label>
+                <button ion-button color="danger" (click)="decrementLutas(luta.id)" [disabled]="luta.valor>0 ?'':'disabled'"> - </button>
+                <button ion-button color="secondary" (click)="incrementLutas(luta.id)"> + </button>
+                <label id="contador">{{ luta.valor }}/2</label>
+            </label>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

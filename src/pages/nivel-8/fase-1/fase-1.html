@@ -1,0 +1,26 @@
+<ion-header>
+
+    <ion-navbar no-border-bottom>
+        <ion-title>Nível 8</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content class="body">
+    <ion-card class="list" *ngFor="let treino of treinosList">
+
+        <ion-card-content [ngClass]="treino.valor>11 ?'checkmark':''">
+            <ion-icon [name]="treino.valor>11 ?'checkmark':''"></ion-icon>
+            <label id="treinos" for="{{treino.treino}}">
+                <strong> {{ treino.treino }} </strong>
+            </label>
+            <br>
+
+            <label>
+                <button ion-button color="danger" (click)="decrementTreinosList(treino.id)" [disabled]="treino.valor>0 ?'':'disabled'"> - </button>
+                <button ion-button color="secondary" (click)="incrementTreinosList(treino.id)"> + </button>
+                <label id="contador">{{ treino.valor }}/12</label>
+            </label>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

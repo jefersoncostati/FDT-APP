@@ -1,0 +1,32 @@
+<!--
+  Generated template for the Nivel_1Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+      <ion-title>Nível 5</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="body" padding>
+  <ion-card class="list" *ngFor="let exercicio of treinosList">
+      <ion-card-content [ngClass]="exercicio.valor>59 ?'checkmark':''">
+          
+          <ion-icon [name]="exercicio.valor>59 ?'checkmark':''"></ion-icon>
+          <label id="treinos" for="{{exercicio.id}}"><strong> {{ exercicio.treino }} </strong></label><br>
+          
+          <label>
+            <button ion-button color="danger" (click)="decrement(exercicio.id)" 
+              [disabled]="exercicio.valor>0 ?'':'disabled'"> - </button>
+            <button ion-button color="secondary" (click)="add(exercicio.id)"
+            [disabled]="exercicio.valor>59 ?'disabled':''"> + </button>
+            <label id="contador">{{ exercicio.valor }}/60</label>
+          </label>
+
+      </ion-card-content>
+  </ion-card>
+</ion-content>

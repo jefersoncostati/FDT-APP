@@ -1,0 +1,68 @@
+page-verso{
+    .checkmark{
+        background-color:#F0F8FF;
+        opacity: 0.9;
+        color: #006400;
+        font-weight: bold;
+    }
+    .body{
+        background-color: #696969;
+        background-image: url("../assets/imgs/logo-tela-login.png");
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    input{
+        display: none;
+    }
+    #treinos{
+        font-size: 13.5px;
+    }
+    .botao{
+        font-size: 9px;
+    }
+    .groupLines{
+        display: table-row-group;
+    }
+    .lineHeader{
+        text-align: center;
+        background-color: #fff;
+        font-size: 15px;
+        margin: 1px;
+    }
+    .lineBody{
+        font-size: 14px;
+        background-color: 	#696969;
+        border: solid 1px #fff;
+        padding: 2px;
+        margin: 1px;
+    }
+    .lineBodyTable{
+        background-color: #696969;
+        color: black;
+        font-weight: bold;
+        margin-bottom: 2px;
+        padding: 4px;
+    }
+    .fonte{
+        font-size: 11px;
+    }
+
+    .conteudo{
+        background-color: 	#808080;
+        opacity: 0.9;
+    }
+    .conteudo-form{
+        background-color: #696969;
+    }
+    .conteudo-2{
+        background-color: 	#696969;
+        opacity: 0.9;
+    }
+    .list{
+        background-color: #000000;
+        opacity: 0.9;
+        font-weight: bold;
+        color: white;
+    }
+    
+}

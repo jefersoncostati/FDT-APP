@@ -1,0 +1,222 @@
+<ion-header>
+    <ion-navbar no-border-bottom>
+        <ion-title>
+            Nível 6
+        </ion-title>
+    </ion-navbar>
+
+    <ion-toolbar no-border-top>
+        <ion-segment [(ngModel)]="versoFolha">
+            <ion-segment-button value="formas">
+                Formas
+            </ion-segment-button>
+            <ion-segment-button value="foco">
+                Foco
+            </ion-segment-button>
+            <ion-segment-button value="fluencias">
+                Fluências
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="body">
+    <div [ngSwitch]="versoFolha">
+        <ion-list *ngSwitchCase="'formas'">
+            <ion-item class="conteudo-form">
+                <ion-card class="list" *ngFor="let padrao of treinoPadraoVerso">
+
+                    <ion-card-content [ngClass]="padrao.valor>11 ?'checkmark':''">
+                        <ion-icon [name]="padrao.valor>11 ?'checkmark':''"></ion-icon>
+                        <label id="treinos" for="{{padrao.id}}">
+                            <strong> {{ padrao.treino }} </strong>
+                        </label>
+                        <br>
+
+                        <label>
+                            <button ion-button color="danger" (click)="decrement(padrao.id)" [disabled]="padrao.valor>0 ?'':'disabled'"> - </button>
+                            <button ion-button color="secondary" (click)="add(padrao.id)"> + </button>
+                            <label id="contador">{{ padrao.valor }}/12</label>
+                        </label>
+                    </ion-card-content>
+                </ion-card>
+
+            </ion-item>
+
+
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'foco'">
+
+            <ion-item>
+                <ion-label floating>Quantidade de acertos consecutivos</ion-label>
+                <ion-input type="number" value="" #valorR></ion-input>
+            </ion-item>
+            <ion-item col-12 class="conteudo-form">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col class="lineHeader">
+                            <strong>Selecine uma Linha</strong>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="lineBody">
+                        <ion-col col-2>
+                            <button ion-button small color="dark" (click)="addLinha(0)"> 01 </button>
+                        </ion-col>
+                        <ion-col col-2>
+                            <button ion-button small color="dark" (click)="addLinha(1)"> 02 </button>
+                        </ion-col>
+                        <ion-col col-2>
+                            <button ion-button small color="dark" (click)="addLinha(2)"> 03 </button>
+                        </ion-col>
+                        <ion-col col-2>
+                            <button ion-button small color="dark" (click)="addLinha(3)"> 04 </button>
+                        </ion-col>
+                        <ion-col col-2>
+                            <button ion-button small color="dark" (click)="addLinha(4)"> 05 </button>
+                        </ion-col>
+                        <ion-col col-2>
+                            <button ion-button small color="dark" (click)="addLinha(5)"> 06 </button>
+                        </ion-col>
+                        <ion-col col-2>
+                            <button ion-button small color="dark" (click)="addLinha(6)"> 07 </button>
+                        </ion-col>
+                        <ion-col col-2>
+                            <button ion-button small color="dark" (click)="addLinha(7)"> 08 </button>
+                        </ion-col>
+                        <ion-col col-2>
+                            <button ion-button small color="dark" (click)="addLinha(8)"> 09 </button>
+                        </ion-col>
+                        <ion-col col-2>
+                            <button ion-button small color="dark" (click)="addLinha(9)"> 10 </button>
+                        </ion-col>
+                        <ion-col col-2>
+                            <button ion-button small color="dark" (click)="addLinha(10)"> 11 </button>
+                        </ion-col>
+                        <ion-col col-2>
+                            <button ion-button small color="dark" (click)="addLinha(11)"> 12 </button>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+
+                <ion-grid>
+                    <ion-row class="lineHeader">
+                        <ion-col>
+                            <strong>Selecine uma Coluna</strong>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="lineBody">
+                        <ion-col>
+                            <button class="botao" ion-button color="dark" (click)="addBiuJee(valorR.value)">Biu Jee</button>
+                        </ion-col>
+                        <ion-col>
+                            <button class="botao" ion-button color="dark" (click)="addJinKuen(valorR.value)">Jin kuen</button>
+                        </ion-col>
+                        <ion-col>
+                            <button class="botao" ion-button color="dark" (click)="addKwaiJang(valorR.value)">Kwai Jang</button>
+                        </ion-col>
+                        <ion-col>
+                            <button class="botao" ion-button color="dark" (click)="addSamBaiFa(valorR.value)">Sam Bai Fa</button>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+
+                <ion-grid>
+                    <ion-row>
+                        <ion-col class="lineHeader">
+                            <strong>Treino de Foco das Seguintes técnicas:</strong>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col class="lineBody">
+                            <strong>Biu Jee</strong>
+                        </ion-col>
+                        <ion-col class="lineBody">
+                            <strong>Jin kuen</strong>
+                        </ion-col>
+                        <ion-col class="lineBody">
+                            <strong>Kwai Jang</strong>
+                        </ion-col>
+                        <ion-col class="lineBody">
+                            <strong>Sam Bai Fa</strong>
+                        </ion-col>
+                    </ion-row>
+                    <div>
+                        <ion-row>
+                            <ion-col class="lineHeader">
+                                <ion-row class="lineBodyTable" *ngFor="let biu of biuJee">
+                                    {{ biu.recode }}
+                                </ion-row>
+                            </ion-col>
+                            <ion-col class="lineHeader">
+                                <ion-row class="lineBodyTable" *ngFor="let jin of jinKuen">
+                                    {{ jin.recode }}
+                                </ion-row>
+                            </ion-col>
+                            <ion-col class="lineHeader">
+                                <ion-row class="lineBodyTable" *ngFor="let kwai of kwaiJang">
+                                    {{ kwai.recode }}
+                                </ion-row>
+                            </ion-col>
+                            <ion-col class="lineHeader">
+                                <ion-row class="lineBodyTable" *ngFor="let sam of samBaiFa">
+                                    {{ sam.recode }}
+                                </ion-row>
+                            </ion-col>
+                        </ion-row>
+
+                    </div>
+                </ion-grid>
+            </ion-item>
+        </ion-list>
+
+        <ion-list  *ngSwitchCase="'fluencias'">
+
+            <ion-item class="conteudo-2">
+                <ion-card class="conteudo">
+                    <ion-card-header>
+                        Nas Aulas Ímpares
+                    </ion-card-header>
+                    <ion-card class="list" *ngFor="let impar of aulasImpares">
+
+                        <ion-card-content [ngClass]="impar.valor>5 ?'checkmark':''">
+                            <ion-icon [name]="impar.valor>5 ?'checkmark':''"></ion-icon>
+                            <label id="treinos" for="{{impar.treino}}">
+                                <strong> {{ impar.treino }} </strong>
+                            </label>
+                            <br>
+
+                            <label>
+                                <button ion-button color="danger" (click)="decrementAulasImpares(impar.id)" [disabled]="impar.valor>0 ?'':'disabled'"> - </button>
+                                <button ion-button color="secondary" (click)="incrementAulasImpares(impar.id)"> + </button>
+                                <label id="contador">{{ impar.valor }}/6</label>
+                            </label>
+                        </ion-card-content>
+                    </ion-card>
+                </ion-card>
+
+                <ion-card class="conteudo">
+                    <ion-card-header>
+                        Nas Aulas Pares
+                    </ion-card-header>
+                    <ion-card class="list" *ngFor="let par of aulasPares">
+                        <ion-card-content [ngClass]="par.valor>5 ?'checkmark':''">
+                            <ion-icon [name]="par.valor>5 ?'checkmark':''"></ion-icon>
+                            <label id="treinos" for="{{par.treino}}">
+                                <strong> {{ par.treino }} </strong>
+                            </label>
+                            <br>
+
+                            <label>
+                                <button ion-button color="danger" (click)="decrementAulasPares(par.id)" [disabled]="par.valor>0 ?'':'disabled'"> - </button>
+                                <button ion-button color="secondary" (click)="incrementAulasPares(par.id)"> + </button>
+                                <label id="contador">{{ par.valor }}/6</label>
+                            </label>
+                        </ion-card-content>
+                    </ion-card>
+                </ion-card>
+
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>
