@@ -9,6 +9,7 @@ import { Nivel_5Page } from '../nivel-5/nivel-5';
 import { Nivel_6Page } from '../nivel-6/nivel-6';
 import { Nivel_7Page } from '../nivel-7/nivel-7';
 import { Nivel_8Page } from '../nivel-8/nivel-8';
+import { Nivel_9Page } from '../nivel-9/nivel-9';
 
 @Component({
   selector: 'page-home',
@@ -24,7 +25,8 @@ export class HomePage {
     {nivel: "Nível 5"},
     {nivel: "Nível 6"},
     {nivel: "Nível 7"},
-    {nivel: "Nível 8"}
+    {nivel: "Nível 8"},
+    {nivel: "Nível 9"}
   ];
 
   constructor(public navCtrl: NavController) {
@@ -56,6 +58,9 @@ export class HomePage {
       break;
       case "Nível 8":
       this.navCtrl.push(Nivel_8Page);
+      break;
+      case "Nível 9":
+      this.navCtrl.push(Nivel_9Page);
       break;
     }
   }

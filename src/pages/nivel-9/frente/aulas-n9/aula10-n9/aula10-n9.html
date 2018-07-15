@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Aula 10</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="body" padding>
+    <ion-card class="list" *ngFor="let exercicio of treinosList">
+        <ion-card-content [ngClass]="exercicio.class">
+            <input type="checkbox" id="{{exercicio.id}}" name="active" (click)="salvar(exercicio.id)">
+            <ion-icon [name]="exercicio.class"></ion-icon>
+            <label for="{{exercicio.id}}"> {{ exercicio.treino }} </label>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
